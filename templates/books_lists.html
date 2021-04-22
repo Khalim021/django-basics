@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+<div class="container-fluid mt-2">
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Name</td>
+            <td>Title</td>
+            <td>Description</td>
+            <td>Category</td>
+            <td>Updated Date</td>
+            <td>Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in object_list %}
+            <tr>
+                <td>{{ book.author.name }}</td>
+                <td>{{ book.title }}</td>
+                <td>{{ book.description|safe}}</td>
+                <td>{{ book.category.genre }}</td>
+                <td>{{ book.updated_at }}</td>
+                <td class="text-center">
+                    <a href="/update/{{ book.pk }}">
+                        <i class="fa fa-pen  text-warning margin mr-3"></i>
+                    </a>
+                    <a onclick=" return confirm('You sure')" href="/delete/{{ book.pk }}/">
+                        <i class="fa fa-trash text-danger margin mr-3"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</div>
+{% endblock %}
+

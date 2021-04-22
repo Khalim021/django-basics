@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load widget_tweaks %}
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-4 offset-4">
+            <form method="post">
+                {% csrf_token %}
+                {% for field in form%}
+                     <div class="form-control">
+                        {{ field.label }}: {{ field|add_class:'form-control' }}
+                     </div>
+                {% endfor %}
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="/">
+                                <button class="w-100 btn btn-info" type="submit">Back</button>
+                            </a>
+                        </div>
+                        <div class="col-6">
+                            <button class="w-100 btn btn-success" type="submit">Create</button>
+                        </div>
+                    </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

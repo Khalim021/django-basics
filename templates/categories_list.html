@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+    <table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>{{ title }}</td>
+            <td width="150px">Action</td>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in object_list %}
+            <tr>
+                <td>{{ i.genre }}</td>
+                <td class="text-center">
+                    <a href="/categories/update/{{ i.pk }}/">
+                        <i class="fa fa-pen  text-warning margin mr-3"></i>
+                    </a>
+                    <a onclick=" return confirm('You sure')" href="/categories/delete/{{ i.pk }}/">
+                        <i class="fa fa-trash text-danger margin mr-3"></i>
+                    </a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+{% endblock %}
+

@@ -1,0 +1,40 @@
+<div class="card-header">
+    <div class="row">
+        <div class="col-3">
+            <a href="/">
+            <h2>Popular Books Ever</h2>
+            </a>
+        </div>
+        <div class="offset-4 col-5">
+            <form action="/">
+                <div class="row">
+                    <div class="col-8">
+                        <label>
+                            <input value="{{ request.GET.q }}" name="q" class="form-control" type="text" placeholder="Search">
+                        </label>
+                    </div>
+                    <div class="cool-2">
+                        <button class="w-100 btn btn-success" type="submit">Search</button>
+                    </div>
+                    <div class="col-2">
+                        <div class="dropdown">
+                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Add
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                <div class="btn btn-secondary">
+                                <a class="dropdown-item " href="/create/">Book</a>
+                                </div>
+                                <div class="btn btn-primary">
+                                <a class="dropdown-item" href="/categories/create/">Category</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
